@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="index.html" id="login-link">Login</a>
+      </nav>
+  </header>
+
+  <main>
+    <h1>My Bookings</h1>
+    <div id="booking-details">
+      <!-- Booking details will be displayed here -->
+    </div>
+  </main>
+
+  <script>
+    // Get booking details from localStorage
+    const bookingDetails = JSON.parse(localStorage.getItem('bookingDetails'));
+
+    const bookingDetailsContainer = document.getElementById('booking-details');
+
+    if (bookingDetails) {
+      bookingDetailsContainer.innerHTML = `
+        <h2>Your Booking</h2>
+        <p><strong>Destination:</strong> ${bookingDetails.destination}</p>
+        <p><strong>Travel Date:</strong> ${bookingDetails.travelDate}</p>
+        <p><strong>Number of People:</strong> ${bookingDetails.numberOfPeople}</p>
+      `;
+    } else {
+      bookingDetailsContainer.innerHTML = `
+        <p>No bookings found. Start planning your next trip!</p>
+      `;
+    }
+  </script>
+</body>
+</html>

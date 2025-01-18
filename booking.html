@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Trip</title>
+  <link rel="stylesheet" href="b.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="index.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Book Your Dream Trip</h1>
+      <p>Choose your destination, set your travel date, and get ready for an unforgettable experience!</p>
+    </section>
+
+    <section class="booking-form">
+      <h2>Fill in Your Details</h2>
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="destination">Destination:</label>
+          <select id="destination" required>
+            <option value="Paris">Paris</option>
+            <option value="New York">New York</option>
+            <option value="Tokyo">Tokyo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="travel-date">Travel Date:</label>
+          <input type="date" id="travel-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="number-of-people">Number of People:</label>
+          <input type="number" id="number-of-people" min="1" required>
+        </div>
+
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+
+    <section class="why-choose-us">
+      <h2>Why Choose Us?</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <img src="46155579904_f56375a368_o-e1709913439241.jpg" alt="Luxury Travel">
+          <h3>Luxury Experience</h3>
+          <p>Enjoy top-notch services and unforgettable luxury experiences.</p>
+        </div>
+        <div class="feature-card">
+          <img src="Most-Adventurous-things-to-do-in-your-lifetime-(update)_timur-garifov-sisZWCDkmwA-unsplash.webp" alt="Adventure">
+          <h3>Adventure Awaits</h3>
+          <p>Explore breathtaking destinations filled with thrilling adventures.</p>
+        </div>
+        <div class="feature-card">
+          <img src="depositphotos_75481827-stock-photo-happy-family-jumping-together-on.jpg" alt="Family-friendly">
+          <h3>Family-friendly</h3>
+          <p>Great vacation packages for families to relax and have fun together.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+ 
+  <script>
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect booking details
+      const destination = document.getElementById('destination').value;
+      const travelDate = document.getElementById('travel-date').value;
+      const numberOfPeople = document.getElementById('number-of-people').value;
+
+      // Save booking details to localStorage
+      const bookingDetails = {
+        destination,
+        travelDate,
+        numberOfPeople,
+      };
+      localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+
+      // Redirect to bookings page
+      window.location.href = 'bookings.html';
+    });
+  </script>
+</body>
+</html>

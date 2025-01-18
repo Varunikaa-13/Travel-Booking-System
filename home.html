@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="bookings.html">My Bookings</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="index.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Discover Your Next Adventure</h1>
+      <p>Explore top destinations and book your dream trip with ease.</p>
+      <button onclick="location.href='booking.html'">Start Booking</button>
+    </section>
+
+    <section class="destinations">
+      <h2>Popular Destinations</h2>
+      <div class="destination-grid">
+        <div class="destination-card">
+          <img src="eiffel-tower-paris-france-sunrise-generate-ai-photo.jpeg" alt="Paris">
+          <h3>Paris</h3>
+          <p>The City of Lights awaits you!</p>
+        </div>
+        <div class="destination-card">
+          <img src="istockphoto-1454217037-612x612.jpg" alt="New York">
+          <h3>New York</h3>
+          <p>Experience the hustle and bustle of the Big Apple.</p>
+        </div>
+        <div class="destination-card">
+          <img src="360_F_498231018_6w6Zt0h2PdU4Muy5Tvph2VeNG67yTuwl.jpg" alt="Tokyo">
+          <h3>Tokyo</h3>
+          <p>Discover the perfect blend of tradition and modernity.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Check if user is logged in
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      document.getElementById('login-link').textContent = `Welcome, ${user.username}`;
+      document.getElementById('login-link').href = '#';
+    }
+  </script>
+</body>
+</html>
